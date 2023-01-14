@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 16:43:31 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/14 21:53:16 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,33 @@ void	opener(char *str)
 			exit(0);
 		}
 		i++;
+	}
+}
+void	ft_duplicate(t_stack *stack_a)
+{
+	t_stack *c = stack_a;
+	int array[100];
+	int da = 0;
+	while (c!= NULL)
+	{
+		array[da++] = c->content;
+		c = c->next;
+	}
+	int y = 0;
+	int b = 0;
+	while (y < da)
+	{
+		b = y + 1;
+		while (b < da)
+		{
+			if (array[y] == array[b])
+			{
+				write(2, "Error\n", 6);
+				exit(1);
+			}
+			b++;
+		}
+		y++;
 	}
 }
 int main(int ac, char **av)
@@ -50,13 +77,7 @@ int main(int ac, char **av)
 			free(content);
 			i++;
 		}
-		t_stack *a;
-		a = stack_a;
-		while (a != NULL)
-		{
-			ft_printf("%d\n", a->content);
-			a = a->next;
-		}
-		// system("leaks push_swap");
+		ft_duplicate(stack_a);
 	}
+		// system("leaks push_swap");
 }
