@@ -28,12 +28,10 @@ RM = rm -f
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	make -C ./printf
-	cc $(CFLAGS) -o $(NAME) $(OBJS) ./printf/libftprintf.a
+	cc $(CFLAGS) -o $(NAME) $(OBJS)
 clean :
 	$(RM) $(OBJS)
 
 fclean : clean
-			make clean -C ./printf
 			$(RM) $(NAME)
 re : fclean all

@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 	{
 		if (res * sym > 2147483647)
 			return (-1);
-		else if (res * sym < -2147483648)
+		else if (res * sym <= -2147483648)
 			return (0);
 		else
 			res = res * 10 + (i[str] - '0');

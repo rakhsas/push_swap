@@ -25,10 +25,8 @@ static long	ft_absolute(int num)
 static int	ft_length(int num)
 {
 	int			len;
-	long long	sign;
 
 	len = 1;
-	sign = ft_absolute(num);
 	num /= 10;
 	while (num)
 	{
