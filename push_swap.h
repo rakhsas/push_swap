@@ -6,14 +6,15 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:48 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 15:14:36 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/15 14:12:20 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
 
-#include "printf/ft_printf.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
