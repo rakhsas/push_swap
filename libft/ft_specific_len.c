@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_specific_len.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 12:35:15 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 15:20:07 by rakhsas          ###   ########.fr       */
+/*   Created: 2023/01/16 22:18:00 by rakhsas           #+#    #+#             */
+/*   Updated: 2023/01/16 22:20:37 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack	*ft_lstnew(int content)
+int	ft_specific_len(char *str, char c)
 {
-	t_stack	*list;
+	int	i;
+	int	count;
 
-	list = (t_stack *)malloc(sizeof(t_stack));
-	if (list == 0)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
 }

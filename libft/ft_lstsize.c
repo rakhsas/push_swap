@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 18:52:50 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 16:44:55 by rakhsas          ###   ########.fr       */
+/*   Created: 2022/10/22 11:21:52 by rakhsas           #+#    #+#             */
+/*   Updated: 2023/01/27 13:55:18 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_isdigit(int c)
+int	ft_lstsize(t_stack *lst)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	t_stack	*a;
+	int		i;
+
+	i = 0;
+	a = lst;
+	while (a != NULL)
+	{
+		a = a->next;
+		i++;
+	}
+	return (i);
 }

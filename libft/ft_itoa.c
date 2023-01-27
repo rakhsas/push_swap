@@ -6,11 +6,11 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:52:40 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 15:20:48 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/16 21:04:32 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static long	ft_absolute(int num)
 {

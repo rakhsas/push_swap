@@ -6,7 +6,7 @@
 #    By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 13:51:26 by rakhsas           #+#    #+#              #
-#    Updated: 2023/01/14 15:15:37 by rakhsas          ###   ########.fr        #
+#    Updated: 2023/01/27 14:44:56 by rakhsas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME = push_swap
 DIR = libft
 DIR1 = printf/src
 DIR_UTILS = printf/utils
-SRC =	main.c ft_lstadd_back.c ft_lstnew.c ft_split.c ft_itoa.c ft_atoi.c ft_isdigit.c
+SRC =	main.c rules.c rules_next.c three_args.c\
+		$(DIR)/ft_lstadd_back.c $(DIR)/ft_lstnew.c $(DIR)/ft_split.c $(DIR)/ft_itoa.c $(DIR)/ft_atoi.c \
+		$(DIR)/ft_isdigit.c $(DIR)/ft_lstsize.c $(DIR)/ft_lstadd_front.c $(DIR)/ft_lstdelone.c	\
+		$(DIR)/ft_specific_len.c $(DIR)/ft_strlen.c $(DIR)/ft_lstlast.c
 
 GCC = gcc
 

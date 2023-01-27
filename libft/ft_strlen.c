@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 12:32:55 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 15:20:28 by rakhsas          ###   ########.fr       */
+/*   Created: 2023/01/16 22:21:12 by rakhsas           #+#    #+#             */
+/*   Updated: 2023/01/16 22:22:05 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+int	ft_strlen(char *str)
 {
-	t_stack	*nt;
+	int	i;
 
-	if (*lst == NULL)
-		*lst = new;
-	else
-	{
-		nt = *lst;
-		while (nt->next != NULL)
-			nt = nt->next;
-		nt->next = new;
-	}
+	i = 0;
+	while (i[str])
+		i++;
+	return (i);
 }

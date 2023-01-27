@@ -6,13 +6,13 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:43:14 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/14 16:22:11 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/16 23:08:00 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
 	int		sym;
@@ -29,10 +29,11 @@ int	ft_atoi(const char *str)
 		i++;
 	while (i[str] && i[str] >= '0' && i[str] <= '9')
 	{
-		if (res * sym > 2147483647)
-			return (-1);
-		else if (res * sym <= -2147483648)
-			return (0);
+		if ((res * sym > 2147483647) || (res * sym <= -2147483648))
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
 		else
 			res = res * 10 + (i[str] - '0');
 		i++;
