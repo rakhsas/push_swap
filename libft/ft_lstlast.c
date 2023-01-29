@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:09:42 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/26 22:32:28 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/28 18:23:22 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
-	if (lst == NULL)
-		return (lst);
-	while (lst->next != NULL)
-		lst = lst ->next;
-	return (lst);
+	t_stack	*c;
+
+	c = lst;
+	if (c == NULL)
+		return (c);
+	while (c->next != NULL)
+		c = c ->next;
+	return (c);
 }

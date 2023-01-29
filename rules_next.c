@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:11:19 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/27 14:47:43 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/28 17:38:33 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	rr_a_b(t_stack **head, int i)
 	dd->next = NULL;
 	lastone->next = *head;
 	*head = lastone;
-	// printf("----%d\n", (*head)->content);
 	if (i == 0)
 		write(1, "rra\n", 4);
 	else

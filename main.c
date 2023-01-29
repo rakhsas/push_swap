@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/27 15:56:23 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/01/29 20:14:16 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,26 +98,70 @@ void	ft_duplicate(t_stack *stack_a)
 	}
 }
 
+void	ft_swap(int *tab, int p1, int p2)
+{
+	int tmp = tab[p1];
+	tab[p1] = tab[p2];
+	tab[p2] = tmp;
+}
+
+void	bubble_sort(int *tab, int size)
+{
+	int i = 0;
+	int j = 0;
+
+	while (i < size)
+	{
+		j = 0;
+		while (j < size - 1)
+		{
+			if (tab[j] > tab[j + 1])
+				ft_swap(tab, j, j + 1);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	ft_fill_tab(t_stack  **b)
+{
+	t_stack *a;
+	int		i;
+	t_tab	*c;
+
+	i = 0;
+	a = *b;
+	c = malloc(sizeof(t_tab));
+	c->content = malloc(sizeof(int *) * ft_lstsize(a));
+	while (a)
+	{
+		c->content[i++] = (a)->content;
+		a = (a)->next;
+	}
+	i = 0;
+	bubble_sort(c->content, ft_lstsize(*b));
+	while (c->content[i])
+	{
+		printf("%d\t", c->content[i]);
+		i++;
+	}
+}
+
 void	ft_next_main(t_stack **stack, t_stack **b)
 {
-	t_stack	*a;
-
-	a = *stack;
-	if (ft_lstsize(a) == 2)
-		swap_2(a, 0);
-	else if (ft_lstsize(a) == 3)
-	{
-		check_for_3_args(&a);
-		exit(0);
-	}
-	else if (ft_lstsize(a) > 3)
-		check_for_5_args(&a, b, ft_lstsize(a), check_for_min(a));
+	if (ft_lstsize(*stack) == 2)
+		swap_2(*stack, 0);
+	else if (ft_lstsize(*stack) == 3)
+		check_for_3_args(stack);
+	else if (ft_lstsize(*stack) > 3 && ft_lstsize(*stack) <= 5)
+		check_for_5_args(stack, b, ft_lstsize(*stack), check_for_min(*stack));
+	else
+		ft_fill_tab(stack);
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
-	// t_stack	*st;
 	t_stack	*b;
 	int		i;
 	char	**content;
@@ -134,6 +178,11 @@ int	main(int ac, char **av)
 			while (content[j])
 			{
 				opener(content[j]);
+				if (ft_atoi(content[j]) > 2147483647)
+				{
+					write(1, "Error\n", 6);
+					exit(1);
+				}
 				ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(content[j])));
 				free(content[j]);
 				j++;
@@ -146,16 +195,5 @@ int	main(int ac, char **av)
 		{
 			ft_next_main(&stack_a, &b);
 		}
-		// 	// st = stack_a;
-
-		// 	// while (stack_a->next)
-		// 	// {
-		// 	// 	stack_a = stack_a->next;
-		// 	// }
-		// rr_a_b(&stack_a, 0);
-		// printf("%d->\n", stack_a->content);
-
-		system("leaks push_swap");
 	}
-
 }

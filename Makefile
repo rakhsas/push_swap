@@ -6,7 +6,7 @@
 #    By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 13:51:26 by rakhsas           #+#    #+#              #
-#    Updated: 2023/01/27 14:44:56 by rakhsas          ###   ########.fr        #
+#    Updated: 2023/01/29 17:24:07 by rakhsas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	cc $(CFLAGS) -o $(NAME) $(OBJS)
+
+# -fsanitize=address
 clean :
 	$(RM) $(OBJS)
 
