@@ -6,55 +6,11 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/29 20:14:16 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/02 10:55:48 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_not_sorted(t_stack *stack_a)
-{
-	int		i;
-	t_stack	*a;
-
-	i = 0;
-	a = stack_a;
-	while (a->next != NULL)
-	{
-		if (a->content > a->next->content)
-			i++;
-		a = a->next;
-	}
-	return (i);
-}
-
-void	opener(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (i[str])
-	{
-		if (!(i[str] >= '0' && i[str] <= '9'))
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
-		i++;
-	}
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (!ft_isdigit(str[i + 1]))
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
-		i++;
-	}
-}
 
 void	check(char *str)
 {
@@ -65,110 +21,150 @@ void	check(char *str)
 	}
 }
 
-void	ft_duplicate(t_stack *stack_a)
+void	test(t_stack **stack_a, t_stack **stack_b, int position)
 {
-	t_stack	*c;
-	int		array[100];
-	int		da;
-	int		y;
-	int		b;
+	int d = ft_lstsize(*stack_b);
+	int	h;
 
-	c = stack_a;
-	da = 0;
-	y = 0;
-	b = 0;
-	while (c != NULL)
+	h = 1;
+	if (position > d / 2 )
 	{
-		array[da++] = c->content;
-		c = c->next;
-	}
-	while (y < da)
-	{
-		b = y + 1;
-		while (b < da)
+		position = (d + 1) - position;
+		// write(1, "Position :: ", 12);
+		// printf("%d H:: %d\n", position, h);
+		while (position >= h)
 		{
-			if (array[y] == array[b])
-			{
-				write(2, "Error\n", 6);
-				exit(1);
-			}
-			b++;
+			rr_a_b(stack_b, 1);
+			h++;
 		}
-		y++;
+		push_2(stack_b, stack_a, 0);
 	}
-}
-
-void	ft_swap(int *tab, int p1, int p2)
-{
-	int tmp = tab[p1];
-	tab[p1] = tab[p2];
-	tab[p2] = tmp;
-}
-
-void	bubble_sort(int *tab, int size)
-{
-	int i = 0;
-	int j = 0;
-
-	while (i < size)
+	else if (position == 1)
+		push_2(stack_b, stack_a, 0);
+	else if (position <= d / 2)
 	{
-		j = 0;
-		while (j < size - 1)
+		position = position - 1;
+		while (position >= h)
 		{
-			if (tab[j] > tab[j + 1])
-				ft_swap(tab, j, j + 1);
-			j++;
+			r_a_b(stack_b, 1);
+			h++;
 		}
-		i++;
+		push_2(stack_b, stack_a, 0);
 	}
 }
 
-void	ft_fill_tab(t_stack  **b)
+int	returnwhere(t_tab *tab, t_stack **stack_b)
 {
-	t_stack *a;
-	int		i;
+	t_stack	*stack;
+	int		k;
+
+	k = 1;
+	stack = *stack_b;
+	while (stack != NULL)
+	{
+		// printf("%d****%d\n", tab->arr[tab->size] , stack->content);
+		if (tab->arr[tab->size - 1] && tab->arr[tab->size - 1] == stack->content)
+		{
+			// printf("%d-----\n", tab->size);
+			return (k);
+		}
+		k++;
+		stack = stack->next;
+	}
+	return (1);
+}
+
+void	ft_next_main(t_stack **stack, t_stack **stack_b)
+{
 	t_tab	*c;
+	t_stack	*a;
 
-	i = 0;
-	a = *b;
-	c = malloc(sizeof(t_tab));
-	c->content = malloc(sizeof(int *) * ft_lstsize(a));
-	while (a)
-	{
-		c->content[i++] = (a)->content;
-		a = (a)->next;
-	}
-	i = 0;
-	bubble_sort(c->content, ft_lstsize(*b));
-	while (c->content[i])
-	{
-		printf("%d\t", c->content[i]);
-		i++;
-	}
-}
-
-void	ft_next_main(t_stack **stack, t_stack **b)
-{
+	c = NULL;
 	if (ft_lstsize(*stack) == 2)
 		swap_2(*stack, 0);
 	else if (ft_lstsize(*stack) == 3)
 		check_for_3_args(stack);
 	else if (ft_lstsize(*stack) > 3 && ft_lstsize(*stack) <= 5)
-		check_for_5_args(stack, b, ft_lstsize(*stack), check_for_min(*stack));
-	else
-		ft_fill_tab(stack);
+		check_for_5_args(stack, stack_b, ft_lstsize(*stack), check_for_min(*stack));
+	else if (ft_lstsize(*stack) > 5)
+	{
+		c = malloc(sizeof(t_tab));
+		c->arr = malloc(sizeof(int) * ft_lstsize(*stack));
+		ft_fill_tab(stack, c);
+		a = *stack;
+		int i = 0;
+		while (a)
+		{
+			while (c->arr[i])
+			{
+				if ((a)->content == c->arr[i])
+					(a)->index = i;
+				i++;
+			}
+			a = a->next;
+		}
+		c->size = ft_lstsize(*stack) + 1;
+		c->middle = c->size / 2 - 1;
+		if (c->size <= 10)
+			c->n = 5;
+		else if (c->size > 10 && c->size <= 150)
+			c->n = 8;
+		else if (c->size > 150)
+			c->n = 18;
+		c->offset = c->size / c->n;
+		c->start = c->middle - c->offset;
+		c->end = c->middle + c->offset;
+		while (*stack)
+		{
+			if (in_range(c, (*stack)->content))
+			{
+				if ((*stack)->content >= c->arr[c->middle])
+					push_2(stack, stack_b, 1);
+				else
+				{
+					push_2(stack, stack_b, 1);
+					r_a_b(stack_b, 1);
+				}
+			}
+			else
+				r_a_b(stack, 0);
+			if (ft_lstsize(*stack_b) == c->end - c->start + 1)
+			{
+				c->start -= c->offset;
+				c->end += c->offset;
+				if (c->start < 0)
+					c->start = 0;
+				if (c->end >= c->size)
+					c->end = c->size - 1;
+			}
+		}
+		while(ft_lstsize(*stack_b))
+		{
+			c->size--;
+			test(stack, stack_b, returnwhere(c, stack_b));
+		}
+
+		// while (*stack)
+		// {
+		// 	printf("%d\n", (*stack)->content);
+		// 	*stack = (*stack)->next;
+		// }
+		// system("leaks push_swap");
+	}
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*b;
+	int	index;
 	int		i;
 	char	**content;
 	int		j;
 
 	if (ac > 1)
 	{
+		index = 0;
 		i = 1;
 		while (i < ac)
 		{
@@ -184,6 +180,7 @@ int	main(int ac, char **av)
 					exit(1);
 				}
 				ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(content[j])));
+				index++;
 				free(content[j]);
 				j++;
 			}
