@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:05:10 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/01 14:40:00 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/04 20:51:23 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@ void	swap_2(t_stack *a, int i)
 {
 	int	n;
 
-	if (a->content < a->next->content)
-		return ;
 	n = a->content;
 	a->content = a->next->content;
 	a->next->content = n;
 	if (i == 0)
 		write(1, "sa\n", 3);
 	else
-		write(1, "sb\n", 1);
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *A, t_stack *B)

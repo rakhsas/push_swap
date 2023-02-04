@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:49:22 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/31 19:33:48 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/04 22:33:30 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	bubble_sort(int *tab, int size)
 	int	j;
 
 	i = 0;
-	while (i < size)
+	while (i <= size)
 	{
-		j = 0;
-		while (j < size - 1)
+		j = i + 1;
+		while (j <= size)
 		{
-			if (tab[j] > tab[j + 1])
-				ft_swap(tab, j, j + 1);
+			if (tab[i] > tab[j])
+				ft_swap(tab, i,j);
 			j++;
 		}
 		i++;
@@ -43,30 +43,46 @@ void	bubble_sort(int *tab, int size)
 void	ft_fill_tab(t_stack **b, t_tab *c)
 {
 	t_stack	*a;
-	int		i;
+	int		i, x;
 
 	i = 0;
+	x = 0;
 	a = *b;
 	while (a)
 	{
-		c->arr[i++] = (a)->content;
+		c->arr[i] = (a)->content;
+		i++;
 		a = (a)->next;
 	}
-	bubble_sort(c->arr, ft_lstsize(*b));
 }
 
-int	in_range(t_tab *data, int c)
+// int	in_range(t_tab *data, int c)
+// {
+// 	int	i;
+
+// 	i = data->start;
+// 	while (i <= data->end)
+// 	{
+// 		if (c == data->arr[i])
+// 			return (1);
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
+int	in_range(int content, int *arr, int start, int end)
 {
+	// printf("%d\t%d", start, end);
 	int	i;
 
-	i = data->start;
-	while (i <= data->end)
+	i = 0;
+	while (i <= end - start)
 	{
-		if (c == data->arr[i])
-			return (1);
+		if (content == arr[start + i])
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	function(t_tab *c, t_stack *stack_b)

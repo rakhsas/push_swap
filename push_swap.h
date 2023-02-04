@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 18:20:49 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/01 12:33:41 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/04 18:53:14 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct s_tab
 	int	*arr;
 	int	size;
 	int	size_copy;
+	int	down;
+	int	max;
+	int	array_size;
 	int	n;
 }	t_tab;
 
@@ -45,7 +48,7 @@ char	*ft_itoa(int num);
 long	ft_atoi(const char *str);
 int		ft_not_sorted(t_stack *stack_a);
 int		function(t_tab *c, t_stack *stack_b);
-int		in_range(t_tab *data, int c);
+int		in_range(int content, int *arr, int start, int end);
 int		ft_specific_len(char *str, char c);
 int		ft_strlen(char *str);
 int		ft_isdigit(int c);
