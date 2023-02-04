@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/04 22:40:05 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/04 22:47:11 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,55 +257,7 @@ void	ft_next_main(t_stack **stack, t_stack **stack_b)
 		// 	printf("%d ", (*stack)->content);
 		// 	*stack = (*stack)->next;
 		// }
-		// while(*stack_b)
-		// {
-		// c->max = c->arr[c->size_copy];
-		// // printf("****%d\n", c->max);
-		// // sleep(3);
-		// 	// printf("*%d*\n", ft_exist(*stack_b, c));
-		// 	// printf("*%d*\n", c->down);
-		// 	// sleep(2);
-		// 	if (ft_exist(*stack_b, c))
-		// 	{
-		// 		if ((*stack_b)->content == c->arr[c->size_copy])
-		// 		{
-		// 			push_2(stack_b, stack, 0);
-		// 			c->size_copy--;
 
-		// 		}
-		// 		else
-		// 		{
-		// 			if (c->down == 0 || (*stack_b)->content > ft_lstlast(*stack)->content)
-		// 			{
-		// 				push_2(stack_b, stack, 0);
-		// 				r_a_b(stack, 0);
-		// 				// printf("111*%d*\n", c->down);
-		// 				c->down++;
-		// 				// printf("222*%d*\n", c->down);
-		// 				// sleep(2);
-		// 				// c->size_copy--;
-
-		// 			}
-		// 			else
-		// 			{
-		// 				if (returnwhere(c, stack_b) > c->size_copy / 2)
-		// 					rr_a_b(stack_b, 1);
-		// 				else
-		// 					r_a_b(stack_b, 1);
-		// 			}
-		// 		}
-		// 	}
-		// 	else
-		// 	{
-		// 		rr_a_b(stack, 0);
-		// 		c->down--;
-		// 		// printf("*%d*\n", c->down);
-		// 		// sleep(2);
-		// 		c->size_copy--;
-		// 	}
-		// 	// c->size_copy--;
-		// 	// test(stack, stack_b, returnwhere(c, stack_b));
-		// }
 	}
 }
 

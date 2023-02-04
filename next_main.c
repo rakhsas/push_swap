@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:33:59 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/01 14:42:15 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/04 22:46:37 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ void	ft_duplicate(t_stack *stack_a)
 		c = c->next;
 	}
 	ft_duplicate_next(array, y, da, b);
+	free(array);
 }
