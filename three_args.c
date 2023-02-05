@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 23:31:10 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/29 16:27:02 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 13:18:47 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,14 @@ void	check_for_5_args(t_stack **a, t_stack **b, int len, int min)
 		if (!ft_not_sorted(*a) && ft_lstsize(*a) == len_initial)
 			break ;
 	}
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }

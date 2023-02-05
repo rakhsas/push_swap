@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 12:25:31 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 22:17:33 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,40 +26,6 @@ int	ft_exist(t_stack *b, int max)
 	return (0);
 }
 
-void	ft_swapo(int *i, int *j)
-{
-	int	help;
-
-	help = *i;
-	*i = *j;
-	*j = help;
-}
-
-void	sort_array(int *arr, int len)
-{
-	int	i;
-	int	j;
-	int	min;
-
-	i = 0;
-	if (arr)
-	{
-		while (i < len)
-		{
-			min = i;
-			j = i + 1;
-			while (j < len)
-			{
-				if (arr[j] < arr[min])
-					min = j;
-				j++;
-			}
-			ft_swapo(&arr[i], &arr[min]);
-			i++;
-		}
-	}
-}
-
 void	ft_next_main(t_stack **stack, t_stack **stack_b)
 {
 	ft_duplicate(*stack);
@@ -67,7 +33,7 @@ void	ft_next_main(t_stack **stack, t_stack **stack_b)
 	{
 		if (ft_lstsize(*stack) == 2)
 		{
-			if ((*stack)->next->content > (*stack)->content)
+			if ((*stack)->next->content < (*stack)->content)
 				swap_2(*stack, 0);
 		}
 		else if (ft_lstsize(*stack) == 3)

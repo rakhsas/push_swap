@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:05:10 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/04 20:51:23 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 19:20:18 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	swap_2(t_stack *a, int i)
 	a->next->content = n;
 	if (i == 0)
 		write(1, "sa\n", 3);
-	else
+	else if (i == 1)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *A, t_stack *B)
+void	ss(t_stack *A, t_stack *B, int n)
 {
-	swap_2(A, 0);
-	swap_2(B, 1);
+	swap_2(A, n);
+	swap_2(B, n);
 }
 
 void	push_2(t_stack **stack_1, t_stack **stack_2, int n)
@@ -41,7 +41,7 @@ void	push_2(t_stack **stack_1, t_stack **stack_2, int n)
 	*stack_1 = tmp;
 	if (n == 0)
 		write(1, "pa\n", 3);
-	else
+	else if (n == 1)
 		write(1, "pb\n", 3);
 }
 
@@ -57,7 +57,7 @@ void	r_a_b(t_stack **head, int i)
 	*head = tmp;
 	if (i == 0)
 		write(1, "ra\n", 3);
-	else
+	else if (i == 1)
 		write(1, "rb\n", 3);
 }
 

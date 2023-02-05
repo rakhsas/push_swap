@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:11:19 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 12:23:26 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 18:04:58 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	rr_a_b(t_stack **head, int i)
 	*head = lastone;
 	if (i == 0)
 		write(1, "rra\n", 4);
-	else
+	else if (i == 1)
 		write(1, "rrb\n", 4);
 }
 
