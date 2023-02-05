@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:43:14 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/01 14:42:02 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 12:13:41 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,13 @@ long	ft_atoi(const char *str)
 		i++;
 	while (i[str] && i[str] >= '0' && i[str] <= '9')
 	{
-		if ((res * sym > 2147483647) || (res * sym <= -2147483648))
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
-		else
-			res = res * 10 + (i[str] - '0');
+		res = res * 10 + (i[str] - '0');
 		i++;
+	}
+	if ((res * sym > 2147483647) || (res * sym < -2147483648))
+	{
+		write(2, "Error\n", 6);
+		exit(1);
 	}
 	return (sym * res);
 }

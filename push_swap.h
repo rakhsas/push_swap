@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 18:20:49 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/04 23:11:08 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 10:35:30 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack	*ft_lstlast(t_stack *lst);
 int		ft_exist(t_stack *b, int max);
 int		returnwhere(t_tab *tab, t_stack **stack_b);
 void	sort_more_than_five_args(t_stack **stack_a, t_stack **stack_b);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 char	*ft_itoa(int num);
 void	sort_array(int *arr, int len);
 long	ft_atoi(const char *str);

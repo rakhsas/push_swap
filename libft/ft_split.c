@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:13:30 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/01/16 21:04:32 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 12:25:13 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,14 @@ static char	**ft_split_next(char **str, char const *s, char c, int word_index)
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**str;
 	int		word_num;
 
 	if (!s)
 		return (NULL);
+	check(s);
 	word_num = ft_counter(s, c);
 	str = (char **)malloc(sizeof(char *) * (word_num + 1));
 	if (!str)

@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/04 23:24:29 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 12:25:31 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,23 @@ void	sort_array(int *arr, int len)
 
 void	ft_next_main(t_stack **stack, t_stack **stack_b)
 {
+	ft_duplicate(*stack);
 	if (ft_not_sorted(*stack))
-		ft_duplicate(*stack);
-	if (ft_lstsize(*stack) == 2)
-		swap_2(*stack, 0);
-	else if (ft_lstsize(*stack) == 3)
-		check_for_3_args(stack);
-	else if (ft_lstsize(*stack) > 3 && ft_lstsize(*stack) <= 5)
 	{
-		check_for_5_args(stack, stack_b, ft_lstsize(*stack),
-			check_for_min(*stack));
-	}
-	else if (ft_lstsize(*stack) > 5)
-	{
-		sort_more_than_five_args(stack, stack_b);
+		if (ft_lstsize(*stack) == 2)
+		{
+			if ((*stack)->next->content > (*stack)->content)
+				swap_2(*stack, 0);
+		}
+		else if (ft_lstsize(*stack) == 3)
+			check_for_3_args(stack);
+		else if (ft_lstsize(*stack) > 3 && ft_lstsize(*stack) <= 5)
+		{
+			check_for_5_args(stack, stack_b, ft_lstsize(*stack),
+				check_for_min(*stack));
+		}
+		else if (ft_lstsize(*stack) > 5)
+			sort_more_than_five_args(stack, stack_b);
 	}
 }
 
@@ -92,17 +95,11 @@ int	main(int ac, char **av)
 		i = 1;
 		while (i < ac)
 		{
-			check(av[i]);
 			content = ft_split(av[i], ' ');
 			j = 0;
 			while (content[j])
 			{
 				opener(content[j]);
-				if (ft_atoi(content[j]) > 2147483647)
-				{
-					write(1, "Error\n", 6);
-					exit(1);
-				}
 				ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(content[j])));
 				free(content[j]);
 				j++;
@@ -110,6 +107,6 @@ int	main(int ac, char **av)
 			free(content);
 			i++;
 		}
+		ft_next_main(&stack_a, &b);
 	}
-	ft_next_main(&stack_a, &b);
 }

@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:11:19 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/04 23:15:48 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/05 12:23:26 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	rr_a_b(t_stack **head, int i)
 
 void	check(char *str)
 {
+	int	i;
+
+	i = 0;
 	if (ft_specific_len(str, ' ') == ft_strlen(str))
 	{
 		write(2, "Error\n", 6);
