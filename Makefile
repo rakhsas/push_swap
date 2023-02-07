@@ -6,7 +6,7 @@
 #    By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 13:51:26 by rakhsas           #+#    #+#              #
-#    Updated: 2023/02/07 19:05:26 by rakhsas          ###   ########.fr        #
+#    Updated: 2023/02/07 19:27:44 by rakhsas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,9 @@ $(NAME1) : $(BONOBJS)
 	cc $(CFLAGS) -o $(NAME1) $(BONOBJS)
 clean :
 	$(RM) $(OBJS)
+	$(RM) $(BONOBJS)
 
 fclean : clean
-			$(RM) $(NAME) $(RM) $(BONOBJS)
+			$(RM) $(NAME) $(RM) $(NAME1)
 
 re : fclean all bonus
