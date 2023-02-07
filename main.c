@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:05:26 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 22:17:33 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:58:28 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	ft_exist(t_stack *b, int max)
 {
-	t_stack	*copy;
-
-	copy = b;
 	while (b)
 	{
 		if (b->content == max)
@@ -67,8 +64,7 @@ int	main(int ac, char **av)
 			{
 				opener(content[j]);
 				ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(content[j])));
-				free(content[j]);
-				j++;
+				free(content[j++]);
 			}
 			free(content);
 			i++;

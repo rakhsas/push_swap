@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 22:54:34 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 12:05:12 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:54:16 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,6 @@ void	sort_more_than_five_args(t_stack **stack, t_stack **stack_b)
 	}
 	next_sort(c, stack, stack_b);
 	next_next_sort(stack, stack_b, c);
+	free(c->arr);
+	free(c);
 }

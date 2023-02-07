@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:43:14 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 12:13:41 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:01:42 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	if ((res * sym > 2147483647) || (res * sym < -2147483648))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		ft_error();
 	return (sym * res);
 }

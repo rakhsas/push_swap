@@ -6,26 +6,41 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:33:59 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 22:14:55 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:01:30 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// int	ft_not_sorted(t_stack *stack_a)
+// {
+// 	int		i;
+// 	t_stack	*a;
+
+// 	i = 0;
+// 	a = stack_a;
+// 	while (a)
+// 	{
+// 		if (a->content > a->next->content)
+// 			i++;
+// 		a = a->next;
+// 	}
+// 	return (i);
+// }
 int	ft_not_sorted(t_stack *stack_a)
 {
-	int		i;
 	t_stack	*a;
 
-	i = 0;
 	a = stack_a;
-	while (a->next != NULL)
+	if (!stack_a || ft_lstsize(stack_a) < 1)
+		return (0);
+	while (a->next)
 	{
 		if (a->content > a->next->content)
-			i++;
+			return (1);
 		a = a->next;
 	}
-	return (i);
+	return (0);
 }
 
 void	opener(char *str)
@@ -38,20 +53,14 @@ void	opener(char *str)
 	while (i[str])
 	{
 		if (!(i[str] >= '0' && i[str] <= '9'))
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			ft_error();
 		i++;
 	}
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (!ft_isdigit(str[i + 1]))
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			ft_error();
 		i++;
 	}
 }
@@ -64,10 +73,7 @@ void	ft_duplicate_next(int *array, int y, int da, int b)
 		while (b < da)
 		{
 			if (array[y] == array[b])
-			{
-				write(2, "Error\n", 6);
-				exit(1);
-			}
+				ft_error();
 			b++;
 		}
 		y++;

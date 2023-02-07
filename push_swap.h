@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 18:20:49 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 22:00:35 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:00:58 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef struct s_tab
 	int	array_size;
 	int	n;
 }	t_tab;
-
+void	ft_error(void);
+void	ft_lstclear(t_stack **lst);
 t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 int		ft_exist(t_stack *b, int max);
@@ -69,13 +70,14 @@ void	ft_lstdelone(t_stack *lst);
 void	ss(t_stack *A, t_stack *B, int i);
 void	push_2(t_stack **a, t_stack **b, int n);
 void	r_a_b(t_stack **a, int i);
-void	rr(t_stack *a, t_stack *b);
+void	rr(t_stack *a, t_stack *b, int n);
 void	rr_a_b(t_stack **head, int i);
 void	swap_2(t_stack *a, int i);
 void	check(char *str);
 void	ft_swap(int *i, int *j);
 void	check_for_3_args(t_stack **a);
 void	check_for_5_args(t_stack **a, t_stack **b, int len, int min);
+void	rrr(t_stack *a, t_stack *b, int n);
 // GET NEXT LINE
 
 # ifndef BUFFER_SIZE

@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:48:37 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 22:01:03 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:00:53 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ void	ft_swap(int *i, int *j)
 	help = *i;
 	*i = *j;
 	*j = help;
+}
+
+void	rrr(t_stack *a, t_stack *b, int n)
+{
+	rr_a_b(&a, n);
+	rr_a_b(&b, n);
+}
+
+void	ft_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
 }

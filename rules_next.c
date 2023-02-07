@@ -6,7 +6,7 @@
 /*   By: rakhsas <rakhsas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 21:11:19 by rakhsas           #+#    #+#             */
-/*   Updated: 2023/02/05 18:04:58 by rakhsas          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:01:37 by rakhsas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rr_a_b(t_stack **head, int i)
 	t_stack	*lastone;
 	t_stack	*dd;
 
-	if (ft_lstsize(*head) == 1)
+	if ((ft_lstsize(*head) <= 1))
 		return ;
 	dd = *head;
 	while (dd->next->next)
@@ -34,14 +34,8 @@ void	rr_a_b(t_stack **head, int i)
 
 void	check(char *str)
 {
-	int	i;
-
-	i = 0;
 	if (ft_specific_len(str, ' ') == ft_strlen(str))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		ft_error();
 }
 
 int	returnwhere(t_tab *tab, t_stack **stack_b)
